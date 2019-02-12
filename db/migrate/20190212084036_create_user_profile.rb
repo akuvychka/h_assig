@@ -1,0 +1,6 @@
+class CreateUserProfile < ActiveRecord::Migration[5.2]
+  def change
+    create_table :user_profiles do |t|
+    end
+  end
+end
