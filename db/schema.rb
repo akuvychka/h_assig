@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_094829) do
+ActiveRecord::Schema.define(version: 2019_02_12_095653) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2019_02_12_094829) do
     t.integer "studio_id"
     t.date "book_from"
     t.date "book_to"
+    t.integer "payment_history_records_id"
+    t.index ["payment_history_records_id"], name: "index_bookings_on_payment_history_records_id"
     t.index ["studio_id"], name: "index_bookings_on_studio_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -87,6 +89,17 @@ ActiveRecord::Schema.define(version: 2019_02_12_094829) do
   create_table "musical_equipments", force: :cascade do |t|
     t.string "name"
     t.text "short_description"
+  end
+
+  create_table "payment_history_records", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "studio_id"
+    t.integer "currency_id"
+    t.float "price"
+    t.date "payment_date"
+    t.index ["currency_id"], name: "index_payment_history_records_on_currency_id"
+    t.index ["studio_id"], name: "index_payment_history_records_on_studio_id"
+    t.index ["user_id"], name: "index_payment_history_records_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
