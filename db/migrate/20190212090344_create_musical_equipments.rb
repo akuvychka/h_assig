@@ -1,4 +1,4 @@
-class CreateMusicalEquipment < ActiveRecord::Migration[5.2]
+class CreateMusicalEquipments < ActiveRecord::Migration[5.2]
   def change
     create_table :musical_equipments do |t|
       t.string :name

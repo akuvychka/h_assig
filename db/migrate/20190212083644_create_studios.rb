@@ -8,7 +8,7 @@ class CreateStudios< ActiveRecord::Migration[5.2]
       t.float :longitude
       t.time :work_from
       t.time :work_to
-      t.int :day_of_week
+      t.integer :day_of_week
       t.float :base_price_per_hour
     end
   end
